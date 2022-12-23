@@ -74,6 +74,15 @@ enum Device
  */
 enum Control
 {
+  
+  UI_UP; 
+  UI_LEFT; 
+  UI_RIGHT; 
+  UI_DOWN; 
+  NOTE_UP; 
+  NOTE_LEFT; 
+  NOTE_RIGHT; 
+  NOTE_DOWN;
 	UP;
 	LEFT;
 	RIGHT;
