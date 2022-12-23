@@ -333,17 +333,17 @@ class PlayState extends MusicBeatState
 					"Only then I will even CONSIDER letting you\ndate my daughter!"
 				];
 				case 'senpai':
-					dialogue = CoolUtil.coolTextFile(Paths.txt('senpai/senpaiDialogue'));
+					dialogue = CoolUtil.coolTextFile(Paths.txt(SUtil.getPath() + 'senpai/senpaiDialogue'));
 				case 'roses':
-					dialogue = CoolUtil.coolTextFile(Paths.txt('roses/rosesDialogue'));
+					dialogue = CoolUtil.coolTextFile(Paths.txt(SUtil.getPath() + 'roses/rosesDialogue'));
 				case 'thorns':
-					dialogue = CoolUtil.coolTextFile(Paths.txt('thorns/thornsDialogue'));
+					dialogue = CoolUtil.coolTextFile(Paths.txt(SUtil.getPath() + 'thorns/thornsDialogue'));
 			case 'lo-fight' | 'lo-fight-b-side':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('lo-fight/pleaseSubscribe'));
+				dialogue = CoolUtil.coolTextFile(Paths.txt(SUtil.getPath() + 'lo-fight/pleaseSubscribe'));
 			case 'overhead' | 'overhead-b-side':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('overhead/pleaseSubscribe'));
+				dialogue = CoolUtil.coolTextFile(Paths.txt(SUtil.getPath() + 'overhead/pleaseSubscribe'));
 			case 'ballistic' | 'ballistic-b-side':
-				dialogue = CoolUtil.coolTextFile(Paths.txt('ballistic/pleaseSubscribe'));
+				dialogue = CoolUtil.coolTextFile(Paths.txt(SUtil.getPath() + 'ballistic/pleaseSubscribe'));
 		}
 
 		switch(SONG.stage)
@@ -353,7 +353,7 @@ class PlayState extends MusicBeatState
 				curStage = 'spooky';
 				halloweenLevel = true;
 
-				var hallowTex = Paths.getSparrowAtlas('halloween_bg','week2');
+				var hallowTex = Paths.getSparrowAtlas(SUtil.getPath() + 'halloween_bg','week2');
 
 				halloweenBG = new FlxSprite(-200, -100);
 				halloweenBG.frames = hallowTex;
@@ -421,7 +421,7 @@ class PlayState extends MusicBeatState
 					add(skyBG);
 
 					var bgLimo:FlxSprite = new FlxSprite(-200, 480);
-					bgLimo.frames = Paths.getSparrowAtlas('limo/bgLimo','week4');
+					bgLimo.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'limo/bgLimo','week4');
 					bgLimo.animation.addByPrefix('drive', "background limo pink", 24);
 					bgLimo.animation.play('drive');
 					bgLimo.scrollFactor.set(0.4, 0.4);
@@ -448,7 +448,7 @@ class PlayState extends MusicBeatState
 
 					// overlayShit.shader = shaderBullshit;
 
-					var limoTex = Paths.getSparrowAtlas('limo/limoDrive','week4');
+					var limoTex = Paths.getSparrowAtlas(SUtil.getPath() + 'limo/limoDrive','week4');
 
 					limo = new FlxSprite(-120, 550);
 					limo.frames = limoTex;
@@ -474,7 +474,7 @@ class PlayState extends MusicBeatState
 					add(bg);
 
 					upperBoppers = new FlxSprite(-240, -90);
-					upperBoppers.frames = Paths.getSparrowAtlas('christmas/upperBop','week5');
+					upperBoppers.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'christmas/upperBop','week5');
 					upperBoppers.animation.addByPrefix('bop', "Upper Crowd Bob", 24, false);
 					upperBoppers.antialiasing = true;
 					upperBoppers.scrollFactor.set(0.33, 0.33);
@@ -499,7 +499,7 @@ class PlayState extends MusicBeatState
 					add(tree);
 
 					bottomBoppers = new FlxSprite(-300, 140);
-					bottomBoppers.frames = Paths.getSparrowAtlas('christmas/bottomBop','week5');
+					bottomBoppers.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'christmas/bottomBop','week5');
 					bottomBoppers.animation.addByPrefix('bop', 'Bottom Level Boppers', 24, false);
 					bottomBoppers.antialiasing = true;
 					bottomBoppers.scrollFactor.set(0.9, 0.9);
@@ -516,7 +516,7 @@ class PlayState extends MusicBeatState
 					add(fgSnow);
 
 					santa = new FlxSprite(-840, 150);
-					santa.frames = Paths.getSparrowAtlas('christmas/santa','week5');
+					santa.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'christmas/santa','week5');
 					santa.animation.addByPrefix('idle', 'santa idle in fear', 24, false);
 					santa.antialiasing = true;
 					if(FlxG.save.data.distractions){
@@ -576,7 +576,7 @@ class PlayState extends MusicBeatState
 					add(bgTrees);
 
 					var treeLeaves:FlxSprite = new FlxSprite(repositionShit, -40);
-					treeLeaves.frames = Paths.getSparrowAtlas('weeb/petals','week6');
+					treeLeaves.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'weeb/petals','week6');
 					treeLeaves.animation.addByPrefix('leaves', 'PETALS ALL', 24, true);
 					treeLeaves.animation.play('leaves');
 					treeLeaves.scrollFactor.set(0.85, 0.85);
@@ -625,7 +625,7 @@ class PlayState extends MusicBeatState
 					var posY = 200;
 
 					var bg:FlxSprite = new FlxSprite(posX, posY);
-					bg.frames = Paths.getSparrowAtlas('weeb/animatedEvilSchool','week6');
+					bg.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'weeb/animatedEvilSchool','week6');
 					bg.animation.addByPrefix('idle', 'background 2', 24);
 					bg.animation.play('idle');
 					bg.scrollFactor.set(0.8, 0.9);
@@ -680,7 +680,7 @@ class PlayState extends MusicBeatState
             {
               trace('pogging');
 			  wBg.antialiasing = true;
-			  var bgTex = Paths.getSparrowAtlas('BallisticBackground', 'bonusWeek');
+			  var bgTex = Paths.getSparrowAtlas(SUtil.getPath() + 'BallisticBackground', 'bonusWeek');
               nwBg = new FlxSprite(-600, -200);
               nwBg.frames = bgTex;
               nwBg.antialiasing = true;
@@ -1227,7 +1227,7 @@ class PlayState extends MusicBeatState
 
 				remove(dad);
 				var animation:FlxSprite = new FlxSprite(-480,-100);
-				animation.frames = Paths.getSparrowAtlas('cuttinDeezeBalls', 'bonusWeek');
+				animation.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'cuttinDeezeBalls', 'bonusWeek');
 				animation.animation.addByPrefix('startup', 'Whitty Ballistic Cutscene', 24, false);
 				animation.antialiasing = true;
 				add(animation);
@@ -1359,7 +1359,7 @@ class PlayState extends MusicBeatState
 				inCutscene = true;
 				remove(dad);
 				var animation:FlxSprite = new FlxSprite(-290,-100);
-				animation.frames = Paths.getSparrowAtlas('whittyCutscene','bonusWeek');
+				animation.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'whittyCutscene','bonusWeek');
 				animation.animation.addByPrefix('startup', 'Whitty Cutscene Startup ', 24, false);
 				animation.antialiasing = true;
 				add(animation);
@@ -1530,7 +1530,7 @@ class PlayState extends MusicBeatState
 		red.scrollFactor.set();
 
 		var senpaiEvil:FlxSprite = new FlxSprite();
-		senpaiEvil.frames = Paths.getSparrowAtlas('weeb/senpaiCrazy');
+		senpaiEvil.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'weeb/senpaiCrazy');
 		senpaiEvil.animation.addByPrefix('idle', 'Senpai Pre Explosion', 24, false);
 		senpaiEvil.setGraphicSize(Std.int(senpaiEvil.width * 6));
 		senpaiEvil.scrollFactor.set();
@@ -1982,7 +1982,7 @@ class PlayState extends MusicBeatState
 					}
 				
 				case 'normal':
-					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
+					babyArrow.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'NOTE_assets');
 					babyArrow.animation.addByPrefix('green', 'arrowUP');
 					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
 					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
@@ -2016,7 +2016,7 @@ class PlayState extends MusicBeatState
 						}
 
 				default:
-					babyArrow.frames = Paths.getSparrowAtlas('NOTE_assets');
+					babyArrow.frames = Paths.getSparrowAtlas(SUtil.getPath() + 'NOTE_assets');
 					babyArrow.animation.addByPrefix('green', 'arrowUP');
 					babyArrow.animation.addByPrefix('blue', 'arrowDOWN');
 					babyArrow.animation.addByPrefix('purple', 'arrowLEFT');
