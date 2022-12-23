@@ -141,6 +141,10 @@ class ScoreScreenState extends MusicBeatState
         add(ratingBTxt);
         add(scoreTxt);
 
+		#if android
+    addVirtualPad(LEFT_FULL, A_B);
+    #end
+		
 		super.create();
 	}
 
