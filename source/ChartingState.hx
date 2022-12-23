@@ -1357,12 +1357,13 @@ class ChartingState extends MusicBeatState
 		{
 		  #if android
 			SUtil.saveContent(data.trim(), _song.song.toLowerCase() + ".json");
-			#end
+			#else
 			_file = new FileReference();
 			_file.addEventListener(Event.COMPLETE, onSaveComplete);
 			_file.addEventListener(Event.CANCEL, onSaveCancel);
 			_file.addEventListener(IOErrorEvent.IO_ERROR, onSaveError);
 			_file.save(data.trim(), _song.song.toLowerCase() + ".json");
+			#end
 		}
 	}
 
