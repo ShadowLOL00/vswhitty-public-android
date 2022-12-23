@@ -15,7 +15,7 @@ import android.flixel.FlxHitbox;
 import android.flixel.FlxVirtualPad;
 import openfl.utils.Assets;
 
-class androidControlsSubState extends FlxSubState
+class AndroidControlsSubState extends FlxSubState
 {
 	private final controlsItems:Array<String> = ['Pad-Right', 'Pad-Left', 'Pad-Custom', 'Pad-Duo', 'Hitbox', 'Keyboard'];
 
@@ -37,7 +37,7 @@ class androidControlsSubState extends FlxSubState
 	override function create()
 	{
 		for (i in 0...controlsItems.length)
-			if (controlsItems[i] == androidControls.mode)
+			if (controlsItems[i] == AndroidControls.mode)
 				curSelected = i;
 
 		var bg:FlxSprite = new FlxSprite(0, 0).makeGraphic(FlxG.width, FlxG.height, FlxColor.fromRGB(FlxG.random.int(0, 255), FlxG.random.int(0, 255), FlxG.random.int(0, 255)));
@@ -47,10 +47,10 @@ class androidControlsSubState extends FlxSubState
 
 		var exitButton:FlxButton = new FlxButton(FlxG.width - 200, 50, 'Exit', function()
 		{
-			androidControls.mode = controlsItems[Math.floor(curSelected)];
+			AndroidControls.mode = controlsItems[Math.floor(curSelected)];
 
 			if (controlsItems[Math.floor(curSelected)] == 'Pad-Custom')
-				androidControls.customVirtualPad = virtualPad;
+				AndroidControls.customVirtualPad = virtualPad;
 
 			FlxTransitionableState.skipNextTransOut = true;
 			FlxG.resetState();
@@ -65,8 +65,8 @@ class androidControlsSubState extends FlxSubState
 		{
 			if (controlsItems[Math.floor(curSelected)] == 'Pad-Custom' && resetButton.visible) // being sure about something
 			{
-				androidControls.customVirtualPad = new FlxVirtualPad(RIGHT_FULL, NONE);
-				reloadandroidControls('Pad-Custom');
+				AndroidControls.customVirtualPad = new FlxVirtualPad(RIGHT_FULL, NONE);
+				reloadAndroidControls('Pad-Custom');
 			}
 		});
 		resetButton.setGraphicSize(Std.int(resetButton.width) * 3);
@@ -208,7 +208,7 @@ class androidControlsSubState extends FlxSubState
 
 		var daChoice:String = controlsItems[Math.floor(curSelected)];
 
-		reloadandroidControls(daChoice);
+		reloadAndroidControls(daChoice);
 
 		funitext.visible = daChoice == 'Keyboard';
 		resetButton.visible = daChoice == 'Pad-Custom';
@@ -228,7 +228,7 @@ class androidControlsSubState extends FlxSubState
 			buttonBinded = true;
 	}
 
-	private function reloadandroidControls(daChoice:String):Void
+	private function reloadAndroidControls(daChoice:String):Void
 	{
 		switch (daChoice)
 		{
@@ -242,7 +242,7 @@ class androidControlsSubState extends FlxSubState
 				add(virtualPad);
 			case 'Pad-Custom':
 				removeControls();
-				virtualPad = androidControls.customVirtualPad;
+				virtualPad = AndroidControls.customVirtualPad;
 				add(virtualPad);
 			case 'Pad-Duo':
 				removeControls();
