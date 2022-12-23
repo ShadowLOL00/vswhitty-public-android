@@ -51,6 +51,10 @@ class TitleState extends MusicBeatState
 
 	override public function create():Void
 	{
+	  #if android
+    FlxG.android.preventDefaultKeys = [BACK];
+    #end
+    
 		#if polymod
 		polymod.Polymod.init({modRoot: "mods", dirs: ['introMod']});
 		#end
@@ -80,6 +84,10 @@ class TitleState extends MusicBeatState
 
 		// DEBUG BULLSHIT
 
+		#if android
+    addVirtualPad(LEFT_FULL, A_B);
+    #end
+		
 		super.create();
 
 		// NGio.noLogin(APIStuff.API);
